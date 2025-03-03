@@ -1,0 +1,9 @@
+[WITHDRAWAL][0] 100.000000 withdrawn from account 1000.
+[DEPOSIT][0] 100.000000 deposited into account 1001.
+[WITHDRAWAL][1] 100.000000 withdrawn from account 1000.
+[DEPOSIT][1] 100.000000 deposited into account 1001.
+[WITHDRAWAL][3] 50.000000 withdrawn from account 1006.
+[DEPOSIT][3] 50.000000 deposited into account 1005.
+[WITHDRAWAL][3] 50.000000 withdrawn from account 1006.
+[DEPOSIT][3] 50.000000 deposited into account 1005.
+STOP

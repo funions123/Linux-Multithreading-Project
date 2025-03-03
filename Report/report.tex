@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+
+\usepackage{cite}
+\usepackage{hyperref}
+
+\title{Linux Multithreading Demo}
+\author{Thomas Powell}
+\date{\today}
+
+\begin{document}
+\maketitle
+\pagebreak
+\section{Introduction}
+
+\paragraph{}
+tpowel86@students.kennesaw.edu
+
+CS3502 Section 02
+
+\paragraph{}
+This project is a simple banking simulation that uses multithreading to handle transactions concurrently.
+Accounts are protected by mutexes, and transactions are distributed to worker threads.
+A subprocess is used to log the results of transactions, receiving the log output from the worker threads via a pipe.
+
+\section{Implementation}
+
+\paragraph{}
+For this project, I created a basic banking simulation that manages an arbitrary number of bank accounts, and has a thread manager to handle transactions.
+Both the accounts and transactions are stored in JSON files, which are parsed and then executed by the program.
+The main thread is responsible for distributing transactions to worker threads. 
+The number of worker threads is defined arbitrarily, and transactions are distributed round-robin.
+Worker threads execute the queued transactions on accounts, and each account stores a mutex to lock access to it while any thread is executing a transaction.
+Unless blocked by a mutex, the worker threads will execute all transactions as fast as possible.
+
+\paragraph{}
+For demonstrating separate process and pipes, I created a subprocess that handles logging the results of transactions.
+This subprocess is started by the main process, and the main process writes the results to a pipe.
+The subprocess reads the pipe, and prints the results to a text file and the console.
+While most of the program will work on both windows and linux, the pipe only works on Linux.
+
+\section{Environment Setup}
+
+\paragraph{}
+For this project, I used VirtualBox and the latest stable version of Ubuntu.
+This made things relatively simple, as I could install VSCode, Github Desktop, and all required libraries and utilities through relatively conventional means.
+In VSCode's case, it was even on the app store.
+After I installed all of my extensions into VSCode, I could compile the program using GCC/G++ from VSCode.
+VSCode even has extensions for editing \LaTeX\ files, which I found very helpful.
+This essentially meant my entire workflow was inside VSCode, and not particularly different from what I am used to on Windows.
+The \LaTeX\  extensions even auto-compiled valid files to pdf every time I saved.
+
+\paragraph{}
+Another very useful tool I used was the nlohmann/json library, which I used to parse and handle JSON data.
+This library is very easy to use, and I have a lot of experience with it due to my other projects.
+You can install it by drag and dropping the json.hpp file into the workspace, without having to use conan or another lib manager. 
+You don't even need to configure cmake for an external library, since cmake will include it the normal way.
+
+\section{Challenges}
+
+\paragraph{}
+One of the first challenges that appeared as I was setting up the project was my total unfamilarity with \LaTeX. 
+Luckily, there are many great resources online that helped me learn how to use it.
+NYU's sample document\cite{1} and "A Gentle Introduction to \TeX\ A Manual for Self-study.”\cite{2} were the main resources I read from.
+VSCode turned out to have many useful extensions for \LaTeX, so I was able to write and compile the document inside VSCode.
+
+\paragraph{}
+Another major challenge I ran into was the nature of mutexes.
+My initial implementation didn't work, since mutexes are not copyable.
+This was a problem because I was trying to pass the mutex to the worker threads, and the accounts were being copied.
+I was able to fix this by making the accounts shared pointers, and storing them in a global list.
+This meant that I never copied the accounts, since the global list was accessed using extern.
+
+\section{Conclusion}
+
+\paragraph{}
+Once I got everything working, the program worked as expected.
+I was able to deposit and withdraw money from the accounts, and the program handled the multithreaded transactions correctly.
+The logging subprocess worked as expected, and the results were printed to the console and a text file.
+
+\paragraph{}
+This project was a great learning experience for me, and I learned a lot about everything involved.
+Despite being experienced in C++, I had never used threads or mutex before.
+My experience with Linux and VMs was also very limited before this project.
+
+\begin{thebibliography}{1}
+
+\bibitem{1} 
+    ``Research Guides: Getting Started with LaTeX: A Sample Document,''
+    Nyu.edu 2024.
+    Accessed: Feb. 23, 2025.
+    Available: \url{https://guides.nyu.edu/LaTeX/sample-document}
+
+\bibitem{2}
+    M. Doob, 
+    “A Gentle Introduction to \TeX A Manual for Self-study.”,
+    Accessed: Feb. 23, 2025. 
+    Available: \url{https://texdoc.org/serve/gentle.pdf/0}
+
+
+
+\end{thebibliography}
+
+\end{document}

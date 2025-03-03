@@ -1,0 +1,37 @@
+{
+    "account1": {
+        "name": "John",
+        "number": 1000,
+        "balance": 1000.00
+    },
+    "account2": {
+        "name": "Jane",
+        "number": 1001,
+        "balance": 500.00
+    },
+    "account3": {
+        "name": "Jack",
+        "number": 1002,
+        "balance": 1000.00
+    },
+    "account4": {
+        "name": "Bob",
+        "number": 1003,
+        "balance": 500.00
+    },
+    "account5": {
+        "name": "Alice",
+        "number": 1004,
+        "balance": 20.00 
+    },
+    "account6": {
+        "name": "Carol",
+        "number": 1005,
+        "balance": 100.00
+    },
+    "account7": {
+        "name": "David",
+        "number": 1006,
+        "balance": 1000.00
+    }
+}

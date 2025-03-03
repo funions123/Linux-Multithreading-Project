@@ -1,0 +1,68 @@
+{
+    "transaction1": {
+        "type": 1,
+        "senderAccountNumber": 1000,
+        "recipientAccountNumber": 1001,
+        "amount": 100.00
+    },
+    "transaction2": {
+        "type": 1,
+        "senderAccountNumber": 1001,
+        "recipientAccountNumber": 1000,
+        "amount": 50.00
+    },
+    "transaction3": {
+        "type": 1,
+        "senderAccountNumber": 1001,
+        "recipientAccountNumber": 1002,
+        "amount": 100.00
+    },
+    "transaction4": {
+        "type": 1,
+        "senderAccountNumber": 1002,
+        "recipientAccountNumber": 1001,
+        "amount": 50.00
+    },
+    "transaction5": {
+        "type": 1,
+        "senderAccountNumber": 1002,
+        "recipientAccountNumber": 1000,
+        "amount": 100.00
+    },
+    "transaction6": {
+        "type": 1,
+        "senderAccountNumber": 1002,
+        "recipientAccountNumber": 1004,
+        "amount": 50.00
+    },
+    "transaction7": {
+        "type": 1,
+        "senderAccountNumber": 1003,
+        "recipientAccountNumber": 1006,
+        "amount": 100.00
+    },
+    "transaction8": {
+        "type": 1,
+        "senderAccountNumber": 1004,
+        "recipientAccountNumber": 1003,
+        "amount": 50.00
+    },
+    "transaction9": {
+        "type": 1,
+        "senderAccountNumber": 1005,
+        "recipientAccountNumber": 1001,
+        "amount": 100.00
+    },
+    "transaction10": {
+        "type": 1,
+        "senderAccountNumber": 1006,
+        "recipientAccountNumber": 1005,
+        "amount": 50.00
+    },
+    "transaction11": {
+        "type": 1,
+        "senderAccountNumber": 1006,
+        "recipientAccountNumber": 1007,
+        "amount": 100.00
+    }
+}
